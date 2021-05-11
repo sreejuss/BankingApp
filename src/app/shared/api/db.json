@@ -1,0 +1,9 @@
+{
+    "adminLogin": [
+        {
+          "id": 1,
+          "uid": "admin",
+          "upass": "admin@123"
+        }
+      ]
+}

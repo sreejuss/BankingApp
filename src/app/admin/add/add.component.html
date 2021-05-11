@@ -1,0 +1,121 @@
+<div style="color: cadetblue;">
+<form  #frmval="ngForm" name="myform" id="myform" class="form" (ngSubmit)="createAccount(frmval.value)"  >
+  
+    <div class="form-group">
+        <label for="">Enter id:</label>
+        <input type="text" name="id" #id="ngModel" class="form-control" pattern="[0-9]{6}" ngModel required placeholder="Enter Id">
+        <div *ngIf="id.touched && id.invalid">
+            <div class="alert alert-danger" *ngIf="id.hasError('required')">This field is required.</div>
+            <div class="alert alert-danger" *ngIf="id.hasError('pattern')">This field should contain only Numbers and length should be 6.
+            </div>
+        </div>
+    </div>
+    
+   <div class="form-group">
+    <label for="">Enter Name:</label>
+    <input type="text" name="name" #name="ngModel" class="form-control" pattern="^[a-zA-Z ]{3,30}$" ngModel
+        required placeholder="Enter Full Name">
+    <div *ngIf="name.touched && name.invalid">
+        <div class="alert alert-danger" *ngIf="name.hasError('required')">This field is required.</div>
+        <div class="alert alert-danger" *ngIf="name.hasError('pattern')">Name field should contain only characters.
+        </div>
+    </div>
+
+    <label for="">Enter Email:</label>
+    <input type="text" name="email" #ename="ngModel" class="form-control"
+        pattern="^[a-z0-9._%+-]+@([a-z0-9.-]{5})+\.[a-z]{2,4}$" ngModel required placeholder="Enter Email">
+    <div *ngIf="ename.touched && ename.invalid">
+        <div class="alert alert-danger" *ngIf="ename.hasError('required')">This field is required.</div>
+        <div class="alert alert-danger" *ngIf="ename.hasError('pattern')">Invalid email.
+        </div>
+    </div>
+ 
+    <div class="form-group">
+        <label>Select City</label>
+        <select name="city" #city="ngModel" id="" class="form-control" ngModel required>
+
+            <option value="">Select City</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Chennai">Chennai</option>
+            <option value="Kochi">Kochi</option>
+            <option value="Trivandrum">Trivandrum</option>
+            <option value="Calicut">Calicut</option>
+            <option value="Pune">Pune</option>
+            <option value="Banglore">Banglore</option>
+            <option value="Delhi">Delhi</option>
+
+        </select>
+        <div *ngIf="city.touched && city.invalid">
+            <div class="alert alert-danger" *ngIf="city.hasError('required')">This field is required</div>
+
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <label>Select State</label>
+        <select name="state" #state="ngModel" id="" class="form-control" ngModel required>
+
+            <option value="">Select State</option>
+            <option value="Mumbai">Keral</option>
+            <option value="Chennai">TamilNadu</option>
+            <option value="Kochi">Karnataka</option>
+            <option value="Trivandrum">Maharashtra</option>
+            <option value="Calicut">Andra</option>
+            <option value="Pune">Goa</option>
+            <option value="Banglore">Punjab</option>
+            <option value="Delhi">Rajastan</option>
+
+        </select>
+        <div *ngIf="state.touched && state.invalid">
+            <div class="alert alert-danger" *ngIf="state.hasError('required')">This field is required</div>
+
+        </div>
+    </div>
+   
+   
+    <div class="form-group">
+        <label for="">Enter Pin Code:</label>
+        <input type="text" name="pincode" #pincode="ngModel" class="form-control" pattern="[0-9]{6}" ngModel
+            required placeholder="Enter pincode">
+        <div *ngIf="pincode.touched && pincode.invalid">
+            <div class="alert alert-danger" *ngIf="pincode.hasError('required')">This field is required.</div>
+            <div class="alert alert-danger" *ngIf="pincode.hasError('pattern')">This field should contain only Numbers and length should be 6.
+            </div>
+        </div>
+    </div>
+   
+   <br><br>
+   
+   <label for="">Select Account Type </label> &nbsp;
+   
+   <label>
+       <input type="radio" name="type" value="savings" #type="ngModel"  ngModel required> Savings
+   </label> &nbsp;
+    <label>
+   
+       <input type="radio" name="type" value="current" #type="ngModel"  ngModel required>Current 
+   </label><br><br><br>
+
+   <div class="form-group">
+    <label for="">Enter Initial deposit:</label>
+    <input type="text" name="balance" #balance="ngModel" class="form-control" pattern="[0-9]{3,100}" ngModel
+        required placeholder="Enter cash to be deposited">
+    <div *ngIf="balance.touched && balance.invalid">
+        <div class="alert alert-danger" *ngIf="balance.hasError('required')">This field is required.</div>
+        <div class="alert alert-danger" *ngIf="balance.hasError('pattern')">This field should contain only Numbers 
+        </div>
+    </div>
+</div>
+   <label for="">(For savings account minimum balance should 100)</label>
+   <label for="">(For current account  minimum balance should 500)</label>
+
+<br><br>
+   
+   <br><br>
+   <button type="submit" class="btn btn-primary" [disabled]="frmval.invalid" >submit</button>&nbsp;
+   
+   <button type="submit" class="btn btn-warning" [routerLink]="['/admin/admin-dash']">Back</button>
+   <br><br><br>
+   </div>
+   </form>
+   </div>

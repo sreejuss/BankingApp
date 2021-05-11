@@ -1,0 +1,54 @@
+<div>
+    
+ <!-- <form #frmval="ngForm" name="myform" id="myform" class="form" (ngSubmit)="fetch(frmval.value)" >
+    <div class="form-group">
+        <label for="">Enter id:</label>
+        <input type="text" name="id" #id="ngModel" class="form-control" pattern="[0-9]{6}" ngModel required placeholder="Enter Id">
+        <div *ngIf="id.touched && id.invalid">
+            <div class="alert alert-danger" *ngIf="id.hasError('required')">This field is required.</div>
+            <div class="alert alert-danger" *ngIf="id.hasError('pattern')">This field should contain only Numbers and length should be 6.
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]="frmval.invalid">Fetch Your Data</button>
+ </form> -->
+ <br><br>
+ <button type="submit" class="btn btn-primary"  [routerLink]="['/users','deposit']">Deposit Cash</button>&nbsp;
+ <button type="submit" class="btn btn-success" [routerLink]="['/users','withdraw']">Withdraw Cash</button>&nbsp;
+
+ <button type="submit" class="btn btn-info" (click)="logout()">Log Out</button>
+
+
+<br><br>
+ 
+<h2>Your Details</h2>
+<div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th >Name</th>
+            <th >Account Number</th>
+            <th>Type</th>    
+            <th>Status</th>
+            <th>Balance</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let u of empObj">
+
+
+           <td >{{u.name}}</td>
+            <td >{{u.accnumber}}</td> 
+            <td>{{u.type}}</td>
+            <td>{{u.status}}</td>
+            <td>{{u.balance}}</td>       
+        </tr>
+    </tbody>
+</table>
+</div>
+
+
+
+
+</div>
